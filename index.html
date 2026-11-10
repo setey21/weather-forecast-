@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f2f6fb">
+    <meta name="description" content="A simple five-day weather forecast for cities around the world.">
+    <title>Weather Forecast</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/images/weather-icon.svg">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script type="module" src="./assets/js/app.js"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="Weather Forecast home">
+          <span class="brand-mark" aria-hidden="true">☀</span>
+          <span>Weather<span class="brand-light">Forecast</span></span>
+        </a>
+        <p class="topbar-note">A little clarity for your day</p>
+      </header>
+
+      <section class="search-panel" aria-labelledby="page-title">
+        <div class="intro">
+          <p class="eyebrow">YOUR LOCAL OUTLOOK</p>
+          <h1 id="page-title">Weather, wherever you are.</h1>
+          <p class="intro-copy">Search a city to see what’s happening now and what the next five days have in store.</p>
+        </div>
+
+        <form id="search-form" class="search-form" novalidate>
+          <label class="sr-only" for="city-input">Search for a city</label>
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input
+            id="city-input"
+            name="city"
+            type="search"
+            placeholder="Try Addis Ababa"
+            autocomplete="off"
+            aria-describedby="search-hint"
+            required
+          >
+          <button id="search-button" type="submit">
+            <span>Search</span>
+            <span aria-hidden="true">→</span>
+          </button>
+        </form>
+        <p id="search-hint" class="search-hint">Enter a city name to get started.</p>
+      </section>
+
+      <section id="city-options-section" class="city-options-section" aria-labelledby="city-options-heading" hidden>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">CITY MATCHES</p>
+            <h2 id="city-options-heading">Which place did you mean?</h2>
+          </div>
+        </div>
+        <div id="city-options" class="city-options"></div>
+      </section>
+
+      <p id="status-message" class="status-message" role="status" aria-live="polite">
+        <span class="status-icon" aria-hidden="true">✦</span>
+        Search for a city to see your forecast.
+      </p>
+
+      <section id="weather-content" class="weather-content" aria-label="Weather forecast" hidden>
+        <div class="current-heading">
+          <div>
+            <p class="eyebrow">RIGHT NOW</p>
+            <h2 id="location-name" class="location-name"></h2>
+            <p id="current-date" class="current-date"></p>
+          </div>
+          <span class="live-badge"><span aria-hidden="true"></span> CURRENT WEATHER</span>
+        </div>
+
+        <section class="current-card" aria-label="Current conditions">
+          <div class="current-main">
+            <div class="condition-icon" id="current-icon" aria-hidden="true"></div>
+            <div class="current-reading">
+              <p id="current-condition" class="current-condition"></p>
+              <p class="temperature-line">
+                <span id="current-temperature" class="current-temperature"></span>
+                <span class="temperature-unit">°C</span>
+              </p>
+            </div>
+          </div>
+          <p class="current-summary">A snapshot of the weather in your selected city.</p>
+        </section>
+
+        <section class="details-grid" aria-label="Weather details">
+          <article class="detail-card">
+            <span class="detail-icon feels-icon" aria-hidden="true">↗</span>
+            <div>
+              <p class="detail-label">FEELS LIKE</p>
+              <p class="detail-value"><span id="feels-like"></span><span class="detail-unit">°C</span></p>
+            </div>
+          </article>
+          <article class="detail-card">
+            <span class="detail-icon humidity-icon" aria-hidden="true">◌</span>
+            <div>
+              <p class="detail-label">HUMIDITY</p>
+              <p class="detail-value"><span id="humidity"></span><span class="detail-unit">%</span></p>
+            </div>
+          </article>
+          <article class="detail-card">
+            <span class="detail-icon wind-icon" aria-hidden="true">≋</span>
+            <div>
+              <p class="detail-label">WIND SPEED</p>
+              <p class="detail-value"><span id="wind-speed"></span><span class="detail-unit">km/h</span></p>
+            </div>
+          </article>
+        </section>
+
+        <section class="forecast-section" aria-labelledby="forecast-heading">
+          <div class="section-heading forecast-heading">
+            <div>
+              <p class="eyebrow">COMING UP</p>
+              <h2 id="forecast-heading">5-day forecast</h2>
+            </div>
+            <p class="forecast-note">A little look ahead</p>
+          </div>
+          <div id="forecast-list" class="forecast-grid"></div>
+        </section>
+      </section>
+
+      <footer class="app-footer">
+        <p>Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a></p>
+      </footer>
+    </main>
+  </body>
+</html>
